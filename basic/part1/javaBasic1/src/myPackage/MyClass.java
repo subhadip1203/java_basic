@@ -56,6 +56,18 @@ public class MyClass {
 		Date now = new Date();
 		System.out.println(now);
 		
+		
+//		constant data type
+//		constant is denoted by final
+		final float pi =3.14F;
+		System.out.println(pi);
+		
+		
+		
+//		+,-,*./,% 
+		float aa = (float)10/ (float)3;
+		System.out.println(aa);
+		
 	}
 			
 }
