@@ -1,7 +1,14 @@
 package com.subhadip.hibernate.april_part_1;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="song_table")
 public class Song {
 
+	@Id
 	private int song_id;
 	private String song_name;
 	private String singer;
@@ -35,5 +42,14 @@ public class Song {
 	public void setSinger(String singer) {
 		this.singer = singer;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return this.song_id+" - "+this.song_name+" - "+this.singer;
+	}
+	
+	
+	
 
 }
