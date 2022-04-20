@@ -8,7 +8,7 @@
         <property name="hibernate.connection.password">12345678</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/java_test</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL2Dialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
         <mapping class="com.subhadip.hibernate.april_part_1.Song" />
