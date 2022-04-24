@@ -1,21 +1,44 @@
 package com.subhadip.hibernate.april_part_1;
 
+import java.util.Date;
+
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class App {
   public static void main(String[] args) {
 
 	  SessionFactory factory = new Configuration().configure().buildSessionFactory();
-	  factory.openSession();
-	  factory.getCurrentSession();
+//	  factory.openSession();
+//	  factory.getCurrentSession();
+//	  Song mySong = new Song();
+//	  mySong.setSong_id(1);
+//	  mySong.setSong_name("a song");
+//	  mySong.setSinger("subahdip");
+//	  System.out.println(mySong);
 	  
+	  Student student1 = new Student();
+	  student1.setAddress("my address");
+	  student1.setDateCreated(new Date());
 	  
-	  Song mySong = new Song();
-	  mySong.setSong_id(1);
-	  mySong.setSong_name("a song");
-	  mySong.setSinger("subahdip");
-	  System.out.println(mySong);
+	  Session session = factory.openSession();
+	  Transaction tx = null;
+	  
+	  try {
+		  	tx = session.beginTransaction();
+		  	session.save(student1);
+		  	tx.commit();
+	  }
+	  catch (Exception e) {
+		    if (tx!=null) tx.rollback();
+		     throw e;
+	  }
+	  finally {
+		  session.close();
+	  }
+	
 	  
     
   }
