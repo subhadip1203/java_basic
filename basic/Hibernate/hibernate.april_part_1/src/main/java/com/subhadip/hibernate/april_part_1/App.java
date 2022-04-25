@@ -19,26 +19,41 @@ public class App {
 //	  mySong.setSinger("subahdip");
 //	  System.out.println(mySong);
 	  
-	  Student student1 = new Student();
-	  student1.setAddress("my address");
-	  student1.setDateCreated(new Date());
+//	  Student student1 = new Student();
+//	  student1.setAddress("my address 4");
+//	  student1.setDateCreated(new Date());
 	  
 	  Session session = factory.openSession();
 	  Transaction tx = null;
 	  
+//	  try {
+//		  	tx = session.beginTransaction();
+//		  	session.save(student1);
+//		  	tx.commit();
+//	  }
+//	  catch (Exception e) {
+//		    if (tx!=null) tx.rollback();
+//		     throw e;
+//	  }
+//	  finally {
+//		  session.close();
+//	  }
+	
 	  try {
-		  	tx = session.beginTransaction();
-		  	session.save(student1);
-		  	tx.commit();
+		  Student sd1 =  (Student)session.load(Student.class , 2);
+		  System.out.println(sd1.getAddress());
+		  
+		  
+
+		  Student sd2 =  (Student)session.get(Student.class , 3);
+		  System.out.println(sd2.getAddress());
 	  }
 	  catch (Exception e) {
-		    if (tx!=null) tx.rollback();
-		     throw e;
+		  throw e;
 	  }
 	  finally {
 		  session.close();
 	  }
-	
 	  
     
   }
