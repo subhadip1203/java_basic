@@ -39,21 +39,44 @@ public class App {
 //		  session.close();
 //	  }
 	
+//	  try {
+//		  Student sd1 =  (Student)session.load(Student.class , 2);
+//		  System.out.println(sd1.getAddress());
+//		  
+//		  
+//		  Student sd2 =  (Student)session.get(Student.class , 3);
+//		  System.out.println(sd2.getAddress());
+//	  }
+//	  catch (Exception e) {
+//		  throw e;
+//	  }
+//	  finally {
+//		  session.close();
+//	  }
+	  
 	  try {
-		  Student sd1 =  (Student)session.load(Student.class , 2);
-		  System.out.println(sd1.getAddress());
 		  
+		  	SubPart subpart = new SubPart();
+		  	subpart.setPart2(10);
+		  	subpart.setPart1("subpart");
+		  	
+		  	
+		  	Emb1 emb = new Emb1();
+		  	emb.setEmbProp("something");
+		  	emb.setSubpart(subpart);
 		  
-
-		  Student sd2 =  (Student)session.get(Student.class , 3);
-		  System.out.println(sd2.getAddress());
+		  	tx = session.beginTransaction();
+		  	session.save(emb);
+		  	tx.commit();
 	  }
 	  catch (Exception e) {
-		  throw e;
+		    if (tx!=null) tx.rollback();
+		     throw e;
 	  }
 	  finally {
 		  session.close();
 	  }
+	  
 	  
     
   }

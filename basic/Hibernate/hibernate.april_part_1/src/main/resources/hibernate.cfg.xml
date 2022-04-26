@@ -12,6 +12,7 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
         <mapping class="com.subhadip.hibernate.april_part_1.Song" />
-         <mapping class="com.subhadip.hibernate.april_part_1.Student" />
-    </session-factory>
+        <mapping class="com.subhadip.hibernate.april_part_1.Student" />
+        <mapping class="com.subhadip.hibernate.april_part_1.Emb1" />
+     </session-factory>
 </hibernate-configuration>
