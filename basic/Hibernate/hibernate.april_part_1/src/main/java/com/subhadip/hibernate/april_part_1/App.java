@@ -54,19 +54,43 @@ public class App {
 //		  session.close();
 //	  }
 	  
+//	  try {
+//		  
+//		  	SubPart subpart = new SubPart();
+//		  	subpart.setPart2(10);
+//		  	subpart.setPart1("subpart");
+//		  	
+//		  	
+//		  	Emb1 emb = new Emb1();
+//		  	emb.setEmbProp("something");
+//		  	emb.setSubpart(subpart);
+//		  
+//		  	tx = session.beginTransaction();
+//		  	session.save(emb);
+//		  	tx.commit();
+//	  }
+//	  catch (Exception e) {
+//		    if (tx!=null) tx.rollback();
+//		     throw e;
+//	  }
+//	  finally {
+//		  session.close();
+//	  }
+	  
+	  
+
 	  try {
+		  	OnetoOne_2 part2 = new OnetoOne_2();
+		  	part2.setDetails("subhadip details");
 		  
-		  	SubPart subpart = new SubPart();
-		  	subpart.setPart2(10);
-		  	subpart.setPart1("subpart");
+		  	OnetoOne_1 part1 = new OnetoOne_1();
+		  	part1.setName("subhadip");
+		  	part1.setRoll(10);
+		  	part1.setPart2(part2);
 		  	
 		  	
-		  	Emb1 emb = new Emb1();
-		  	emb.setEmbProp("something");
-		  	emb.setSubpart(subpart);
-		  
 		  	tx = session.beginTransaction();
-		  	session.save(emb);
+		  	session.save(part1);
 		  	tx.commit();
 	  }
 	  catch (Exception e) {
