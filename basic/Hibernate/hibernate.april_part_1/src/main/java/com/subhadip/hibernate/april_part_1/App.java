@@ -1,6 +1,8 @@
 package com.subhadip.hibernate.april_part_1;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -79,18 +81,51 @@ public class App {
 	  
 	  
 
+//	  try {
+//		  	OnetoOne_2 part2 = new OnetoOne_2();
+//		  	part2.setDetails("subhadip details");
+//		  
+//		  	OnetoOne_1 part1 = new OnetoOne_1();
+//		  	part1.setName("subhadip");
+//		  	part1.setRoll(10);
+//		  	part1.setPart2(part2);
+//		  	
+//		  	
+//		  	tx = session.beginTransaction();
+//		  	session.save(part1);
+//		  	tx.commit();
+//	  }
+//	  catch (Exception e) {
+//		    if (tx!=null) tx.rollback();
+//		     throw e;
+//	  }
+//	  finally {
+//		  session.close();
+//	  }
+	  
 	  try {
-		  	OnetoOne_2 part2 = new OnetoOne_2();
-		  	part2.setDetails("subhadip details");
-		  
-		  	OnetoOne_1 part1 = new OnetoOne_1();
-		  	part1.setName("subhadip");
-		  	part1.setRoll(10);
-		  	part1.setPart2(part2);
+		  	One2Many_2 child1 = new One2Many_2();
+		  	child1.setDetails("Details 1");
+		  	
+		  	
+		  	One2Many_2 child2 = new One2Many_2();
+		  	child2.setDetails("Details 2");
+		  	
+		  	
+		  	List<One2Many_2> list = new ArrayList<One2Many_2>();
+		  	list.add(child1);
+		  	list.add(child2);
+		  	
+		  	
+		  	One2Many_1 parent = new One2Many_1();
+		  	parent.setName("partent");
+		  	parent.setMylist(list);
+		  	
+		  	
 		  	
 		  	
 		  	tx = session.beginTransaction();
-		  	session.save(part1);
+		  	session.save(parent);
 		  	tx.commit();
 	  }
 	  catch (Exception e) {

@@ -16,6 +16,8 @@
         <mapping class="com.subhadip.hibernate.april_part_1.Emb1" />
         <mapping class="com.subhadip.hibernate.april_part_1.OnetoOne_1" />
         <mapping class="com.subhadip.hibernate.april_part_1.OnetoOne_2" />
+        <mapping class="com.subhadip.hibernate.april_part_1.One2Many_1" />
+        <mapping class="com.subhadip.hibernate.april_part_1.One2Many_2" />
         
         
      </session-factory>

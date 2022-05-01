@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class OnetoOne_2 {
@@ -16,6 +17,9 @@ public class OnetoOne_2 {
  
     @Column
     private String details;
+    
+    @OneToOne(mappedBy = "part2")
+    private OnetoOne_1 refEntityA;
 
 	public int getId() {
 		return id;
