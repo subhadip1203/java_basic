@@ -103,29 +103,64 @@ public class App {
 //		  session.close();
 //	  }
 	  
+//	  try {
+//		  	One2Many_2 child1 = new One2Many_2();
+//		  	child1.setDetails("Details 1");
+//		  	
+//		  	
+//		  	One2Many_2 child2 = new One2Many_2();
+//		  	child2.setDetails("Details 2");
+//		  	
+//		  	
+//		  	List<One2Many_2> list = new ArrayList<One2Many_2>();
+//		  	list.add(child1);
+//		  	list.add(child2);
+//		  	
+//		  	
+//		  	One2Many_1 parent = new One2Many_1();
+//		  	parent.setName("partent");
+//		  	parent.setMylist(list);
+//		  	
+//		  	
+//		  	
+//		  	
+//		  	tx = session.beginTransaction();
+//		  	session.save(parent);
+//		  	tx.commit();
+//	  }
+//	  catch (Exception e) {
+//		    if (tx!=null) tx.rollback();
+//		     throw e;
+//	  }
+//	  finally {
+//		  session.close();
+//	  }
+//	  
+	  
+	  
 	  try {
-		  	One2Many_2 child1 = new One2Many_2();
-		  	child1.setDetails("Details 1");
+		  	Many2Many_2 first1 = new Many2Many_2();
+		  	first1.setDetails("Details 1");
 		  	
 		  	
-		  	One2Many_2 child2 = new One2Many_2();
-		  	child2.setDetails("Details 2");
+		  	Many2Many_2 first2 = new Many2Many_2();
+		  	first2.setDetails("Details 2");
 		  	
 		  	
-		  	List<One2Many_2> list = new ArrayList<One2Many_2>();
-		  	list.add(child1);
-		  	list.add(child2);
+		  	List<Many2Many_2> list = new ArrayList<Many2Many_2>();
+		  	list.add(first1);
+		  	list.add(first2);
 		  	
 		  	
-		  	One2Many_1 parent = new One2Many_1();
-		  	parent.setName("partent");
-		  	parent.setMylist(list);
+		  	Many2Many_1 second = new Many2Many_1();
+		  	second.setName("partent");
+		  	second.setMylist2(list);
 		  	
 		  	
 		  	
 		  	
 		  	tx = session.beginTransaction();
-		  	session.save(parent);
+		  	session.save(second);
 		  	tx.commit();
 	  }
 	  catch (Exception e) {
